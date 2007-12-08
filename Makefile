@@ -1,6 +1,16 @@
 CFLAGS = -Wall -W -Wshadow -g -O2
 CC = gcc
 
+# Call the source code checker "sparse" as part of the C compilation.
+# Use 'make C=1' to enable checking of only re-compiled files.
+ifdef C
+  ifeq ("$(origin C)", "command line")
+    ifneq ($(C),0)
+      CC = cgcc
+    endif
+  endif
+endif
+
 SHELL = /bin/sh
 
 all: x86info test
@@ -94,6 +104,3 @@ clean:
 
 splint:
 	splint +posixlib -badflag -fileextensions -type -nullassign -boolops -showcolumn -sysunrecog -fullinitblock -onlytrans -unrecog -usedef -statictrans -compdestroy -predboolint -predboolothers -D__`uname -m`__ $(C_SRC)
-
-sparse:
-	sparse $(C_SRC)
