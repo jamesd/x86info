@@ -1,5 +1,8 @@
 #ifndef _INTEL_H
 #define _INTEL_H
+
+struct cpudata;
+
 extern void decode_Intel_caches (struct cpudata *cpu, int output);
 extern void show_Intel_caches(struct cpudata *cpu);
 extern void decode_Intel_bluesmoke(int cpunum, int family);

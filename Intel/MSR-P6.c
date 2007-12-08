@@ -10,6 +10,7 @@
 #include <stdio.h>
 #include <unistd.h>
 #include <sys/types.h>
+#include "Intel.h"
 #include "../x86info.h"
 
 void dump_p6_MSRs (struct cpudata *cpu)

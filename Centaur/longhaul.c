@@ -6,6 +6,7 @@
  *  Longhaul register decoding.
  */
 #include <stdio.h>
+#include "centaur.h"
 #include "../x86info.h"
 
 union msr_longhaul {
