@@ -62,7 +62,7 @@ x86info: $(OBJS)
 	$(CC) $(CFLAGS) -o x86info $(OBJS)
 
 .c.o:
-	$(CC) $(CFLAGS) -MMD -o $@ -c $<
+	$(CC) $(CFLAGS) -MMD -MF $*.d -o $@ -c $<
 	@cp $*.d $*.P; \
 	 sed -e 's/#.*//' -e 's/^[^:]*: *//' -e 's/ *\\$$//' \
 	     -e '/^$$/ d' -e 's/$$/ :/' < $*.d >> $*.P; \
