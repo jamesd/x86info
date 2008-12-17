@@ -83,6 +83,9 @@ void identify(struct cpudata *cpu)
 	case VENDOR_SIS:
 		identify_sis(cpu);
 		break;
+	case VENDOR_TRANSMETA:
+	case VENDOR_UNKNOWN:
+		break;
 	}
 }
 
@@ -91,8 +94,9 @@ void show_info(struct cpudata *cpu)
 	if (silent)
 		return;
 
-	printf("Family: %u Model: %u Stepping: %u\n",
-		family(cpu), model(cpu), cpu->stepping);
+	printf("EFamily: %u EModel: %u Family: %u Model: %u Stepping: %u\n",
+	       cpu->efamily, cpu->emodel, cpu->family,
+	       model(cpu), cpu->stepping);
 	printf("CPU Model: %s\n", cpu->name);
 
 	get_model_name(cpu);

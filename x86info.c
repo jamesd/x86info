@@ -176,7 +176,7 @@ int main (int argc, char **argv)
 
 	parse_command_line(argc, argv);
 	if (!silent) {
-		printf("x86info v1.21.  Dave Jones 2001-2008\n");
+		printf("x86info v1.23.  Dave Jones 2001-2008\n");
 		printf("Feedback to <davej@redhat.com>.\n\n");
 	}
 
@@ -246,6 +246,8 @@ int main (int argc, char **argv)
 		if (!silent && nrCPUs != 1)
 			printf("CPU #%u\n", i+1);
 
+		bind_cpu(cpu);
+
 		estimate_MHz(cpu);
 		get_feature_flags(cpu);
 		get_cpu_info_basics(cpu);	/* get vendor,family,model,stepping */
@@ -263,10 +265,14 @@ int main (int argc, char **argv)
 
 		if (show_cacheinfo == 1) {
 			switch (cpu->vendor) {
-			case VENDOR_INTEL:	decode_Intel_caches(cpu, 1);
-						break;
-			case VENDOR_AMD:	decode_AMD_cacheinfo(cpu);
-						break;
+			case VENDOR_INTEL:
+				decode_Intel_caches(cpu, 1);
+				break;
+			case VENDOR_AMD:
+				decode_AMD_cacheinfo(cpu);
+				break;
+			default:
+				break;
 			}
 		}
 
