@@ -1,5 +1,5 @@
 CFLAGS = -Wall -W -Wshadow -g -O2
-CC = gcc
+CC ?= gcc
 
 # Call the source code checker "sparse" as part of the C compilation.
 # Use 'make C=1' to enable checking of only re-compiled files.
