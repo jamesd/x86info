@@ -1,4 +1,4 @@
-CFLAGS = -Wall -W -Wshadow -g -O2
+CFLAGS = -g -O2 -Werror -Wall -Wshadow -Wextra -Wmissing-declarations -Wdeclaration-after-statement -Wredundant-decls
 CC = gcc
 
 # Call the source code checker "sparse" as part of the C compilation.

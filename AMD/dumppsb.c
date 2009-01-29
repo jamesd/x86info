@@ -13,9 +13,9 @@
 #include <ctype.h>
 #include <sys/mman.h>
 
+#include "../x86info.h"
 #include "AMD.h"
 #include "powernow.h"
-#include "../x86info.h"
 
 #define START 0x000c0000L
 #define END   0x000ffff0L

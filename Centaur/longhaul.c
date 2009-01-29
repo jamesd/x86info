@@ -8,6 +8,7 @@
 #include <stdio.h>
 #include "centaur.h"
 #include "../x86info.h"
+#include "centaur.h"
 
 union msr_longhaul {
 	struct {
